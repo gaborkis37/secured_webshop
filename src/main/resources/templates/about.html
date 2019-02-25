@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymleaf.org">
+      
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	
+	<link rel="stylesheet" th:href="@{css/style.css}" href="../static/css/style.css" />
+	
+
+	<title>Webshop</title>	
+</head>
+<body>
+	<div class="header">
+		<div class="header-right">
+			<a href="/index" class="logo">Webshop</a>
+	 		<a href="/index">Home</a>
+    		<a href="/products">Products</a>
+    		<a href="/about">About</a>
+    		<a href="/contact">Contact</a>
+
+  		</div>
+  		
+  		<div class="navbar-text navbar-right">
+
+			           <form sec:authorize="isAuthenticated()" id="frmlogout" th:action="@{/logout}" method="post" class="form-inline">
+				    		| <a href="javascript:{}" onclick="document.getElementById('frmlogout').submit(); return false;">Kijelentkezés</a>
+				      </form>
+				    </div>
+	</div>
+	
+	<h1>This is the about page!</h1>
+	
+	
+	
+	<div class="footer">
+  		<p><b>Készült Kis Gábor által.</b></p>
+	</div>
+</body>
+</html>

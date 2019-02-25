@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymleaf.org">
+      
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	
+	<link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css" />
+	
+
+	<title>Webshop</title>	
+</head>
+<body>
+
+<header>
+	<div class="header">
+		<div class="header-right">
+			<a href="/index" class="logo">Webshop</a>
+	 		<a href="/index">Home</a>
+    		<a href="/products">Products</a>
+    		<a href="/about">About</a>
+    		<a href="/contact">Contact</a>
+    		
+
+  		</div>
+  		
+  		<div class="navbar-text navbar-right">
+			           <form sec:authorize="isAuthenticated()" id="frmlogout" th:action="@{/logout}" method="post" class="form-inline">
+				    		| <a href="javascript:{}" onclick="document.getElementById('frmlogout').submit(); return false;">Kijelentkezés</a>
+				      </form>
+				    </div>
+	</div>
+	</header>
+	<form name="login" th:action="@{/login}" method="post" class="form-signin">
+			<h2 class="form-signin-heading">Please sign in!</h2>
+			<div id="err" th:if="${param.error}" class="alert-danger">Wrong e-mail or password</div>
+			<div th:if="${param.logout}" class="alert-success">You logged out succesfully</div>
+			<div class="user"> 
+			    <input type="text" id="username" name="username" class="form-control" placeholder="E-mail" required="true" /> 
+			</div>
+			<div class="pass" >
+			    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="true" />
+			</div>	
+			<div class="checkbox">
+				<label> <input id="remember-me" name="remember-me" type="checkbox" /> Remember me
+				</label>
+			</div>
+			<div class="submit-button">
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+			</div>
+		</form>
+
+		<div class="registerlink">
+			<a href="/registration">Sign up</a>
+		</div>
+		
+	<div class="footer">
+  		<p><b>Készült Kis Gábor által.</b></p>
+	</div>
+</body>
+</html>
